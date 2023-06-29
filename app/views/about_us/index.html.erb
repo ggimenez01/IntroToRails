@@ -1,0 +1,85 @@
+<h1>About Us</h1>
+<p>
+  Dog Breeds App is a comprehensive platform that provides information about different dog breeds, showcases owners and their dogs, and keeps track of vet visit records.
+</p>
+
+<h2>Data Sources</h2>
+<h3>1. CSV</h3>
+<p>
+  <b>Description:</b> This dataset provides information about different dog breeds, including their names, groups, sections, countries of origin, URLs, images, and PDF files. The reference came from this link: <a href="https://github.com/paiv/fci-breeds">https://github.com/paiv/fci-breeds</a>.
+</p>
+<p>
+  <b>Structure:</b> The dataset consists of columns like "id", "breed_name", "group", "section", "country", "url", "image", and "pdf".
+</p>
+<p>
+  <b>Required Database Table and Columns:</b> The "Breeds" table with columns like "id", "name", "group", "section", "country", "url", "image", and "pdf".
+</p>
+
+<h3>2. Faker Data</h3>
+<h4>2.1. Faker Data for Owners and Dogs:</h4>
+<p>
+  <b>Description:</b> Faker is used to generate synthetic data for owners and their dogs.
+</p>
+<p>
+  <b>Structure:</b> The Faker data includes attributes like owner's name, email, dog's name, age, and the associated breed and owner.
+</p>
+<p>
+  <b>Required Database Tables and Columns:</b> The "Owners" table with columns like "id", "name", and "email". Additionally, a "Dogs" table with columns like "id", "name", "age", "breed_id" (foreign key referencing Breeds table), and "owner_id" (foreign key referencing Owners table).
+</p>
+
+<h4>2.2. Faker Data for Vet Visits:</h4>
+<p>
+  <b>Description:</b> Faker is also used to generate synthetic data for vet visits made by dogs.
+</p>
+<p>
+  <b>Structure:</b> The Faker data includes attributes like visit date, description, and the associated dog.
+</p>
+<p>
+  <b>Required Database Table and Columns:</b> The "VetVisits" table with columns like "id", "visit_date", "description", and "dog_id" (foreign key referencing Dogs table).
+</p>
+<h4>3. JSON</h4>
+<p>
+  <b>Description:</b> JSON datasets to use for animal adoption tab.
+</p>
+<p>
+  <b>Structure:</b> This includes the type, date, pet name, age, size, breed, sex, and the URL.
+</p>
+
+<h2>Integration between the "Dogs" and "Breeds" tables using CSV:</h2>
+<p>
+  The "Dogs" table has a foreign key column named "breed_id" that references the "id" column in the "Breeds" table. This relationship allows each dog to be associated with a specific breed. By leveraging the data from the "dog_breeds.csv" file, you can populate the "Breeds" table with information about different dog breeds. The "breed_id" column in the "Dogs" table serves as a reference to the corresponding breed in the "Breeds" table. With this integration, you can access detailed information about the breed of each dog, such as the breed's name, group, section, country of origin, URL, image, and PDF files.
+</p>
+
+<h2>Integration between the "Dogs" and "Owners" tables using Faker:</h2>
+<p>
+  The "Dogs" table has a foreign key column named "owner_id" that references the "id" column in the "Owners" table. This relationship allows each dog to be associated with a specific owner. By using Faker to generate synthetic data for owners and dogs, you can populate the "Owners" table with information about owners, including their names and email addresses. The "owner_id" column in the "Dogs" table serves as a reference to the corresponding owner in the "Owners" table. With this integration, you can showcase the owners of each dog and display their information on the "About Us" page.
+</p>
+
+<h2>Integration between the "VetVisits" and "Dogs" tables:</h2>
+<p>
+  The "VetVisits" table has a foreign key column named "dog_id" that references the "id" column in the "Dogs" table. This relationship allows each vet visit to be associated with a specific dog. By using Faker to generate synthetic data for vet visits, you can populate the "VetVisits" table with information about the visit date and description. The "dog_id" column in the "VetVisits" table serves as a reference to the corresponding dog in the "Dogs" table. With this integration, you can display vet visit records on the "About Us" page, showing the visit date and description for each dog.
+</p>
+
+<p>
+  By integrating the data from the "dog_breeds.csv" file and Faker-generated data, we provide comprehensive information about different dog breeds, showcase the owners and their dogs, and display vet visit records. This integration allows us to present a rich and informative "About Us" page that highlights various aspects of the Dog Breeds App.
+</p>
+
+<h2>ERD for Dog Breeds App</h2>
+<p>
+  <%= image_tag("dogbreeds.jpg", alt: "Dog Breeds ERD") %>
+</p>
+
+<div>
+  <h2>Associations</h2>
+  <ol>
+    <li>
+      The Breeds table has a one-to-many association with the Dogs table. This is established through the foreign key <strong>breed_id</strong> in the Dogs table, referencing the primary key <strong>id</strong> in the Breeds table. Each dog belongs to a specific breed, and a breed can have multiple dogs associated with it.
+    </li>
+    <li>
+      The Owners table has a one-to-many association with the Dogs table. This is established through the foreign key <strong>owner_id</strong> in the Dogs table, referencing the primary key <strong>id</strong> in the Owners table. Each dog belongs to a specific owner, and an owner can have multiple dogs associated with them.
+    </li>
+    <li>
+      The Dogs table has a one-to-many association with the VetVisits table. This is established through the foreign key <strong>dog_id</strong> in the VetVisits table, referencing the primary key <strong>id</strong> in the Dogs table. Each vet visit is associated with a specific dog, and a dog can have multiple vet visits.
+    </li>
+  </ol>
+</div>

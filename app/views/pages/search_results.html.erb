@@ -1,0 +1,41 @@
+<h1>Search Results</h1>
+
+<% if @results.any? %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Breed</th>
+        <th>Owner</th>
+        <th>Vet Visits</th>
+        <th>Country</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @results.each do |dog| %>
+        <tr>
+          <td><%= dog.name %></td>
+          <td><%= dog.age %></td>
+          <td><%= dog.breed.name %></td>
+          <td><%= dog.owner.name %></td>
+          <td>
+            <% if dog.vet_visits.present? %>
+              <% dog.vet_visits.each do |visit| %>
+                <%= visit.visit_date %><br>
+              <% end %>
+            <% else %>
+              N/A
+            <% end %>
+          </td>
+          <td><%= dog.breed.country %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= paginate @results, class: "pagination justify-content-center" %>
+
+<% else %>
+  <p>No results found.</p>
+<% end %>

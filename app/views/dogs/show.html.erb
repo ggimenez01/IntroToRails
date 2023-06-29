@@ -1,0 +1,45 @@
+<h1 class="text-center">Dog Details</h1>
+
+<div class="card">
+  <div class="card-body">
+    <h2>Name: <%= @dog.name %></h2>
+    <p>ID: <%= @dog.id %></p>
+    <p>
+      Breed: <%= @dog.breed.name %>
+      <%= link_to 'More Info', breed_path(@dog.breed), class: 'btn btn-primary ml-2' %>
+    </p>
+    <p>Group: <%= @dog.breed.group %></p>
+    <p>Section: <%= @dog.breed.section %></p>
+    <p>Country: <%= @dog.breed.country %></p>
+    <p>URL: <%= @dog.breed.url %></p>
+    <p>
+      Image: 
+      <% if @dog.breed.image.present? %>
+        <a href="<%= @dog.breed.image %>">View Image</a>
+      <% else %>
+        N/A
+      <% end %>
+    </p>
+    <p>PDF: <%= @dog.breed.pdf %></p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-body">
+    <h2>Owner Details</h2>
+    <p>Name: <%= @dog.owner.name %></p>
+    <p>Email: <%= @dog.owner.email %></p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-body">
+    <h2>Vet Visits</h2>
+    <% @dog.vet_visits.each do |visit| %>
+      <p>Visit Date: <%= visit.visit_date %></p>
+      <p>Description: <%= visit.description %></p>
+    <% end %>
+  </div>
+</div>
+
+<%= link_to 'Back', dogs_path, class: 'btn btn-primary' %>

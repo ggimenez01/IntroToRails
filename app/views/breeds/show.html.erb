@@ -1,0 +1,25 @@
+<div class="container">
+  <h1 class="text-center mb-4">Breed Details</h1>
+
+  <div class="card">
+    <div class="card-body">
+      <h2 class="card-title"><b>Name:</b> <%= @breed.name %></h2>
+      <p class="card-text"><b>Country:</b> <%= @breed.country %></p>
+      <p class="card-text"><b>Description:</b> <%= @breed.description %></p>
+
+      <% paragraphs = Faker::Lorem.paragraphs(number: 20) %>
+      <% paragraphs.each do |paragraph| %>
+        <p class="card-text"><%= paragraph %></p>
+      <% end %>
+
+      <p class="card-text"><b>Type:</b> <%= Faker::Creature::Dog.breed %></p>
+      <p class="card-text"><b>Food to Avoid:</b> <%= Faker::Food.ingredient %></p>
+
+      <p>
+        <b>Reference for more details:</b> <%= link_to @breed.url, @breed.url %>
+      </p>
+    </div>
+  </div>
+
+  <%= link_to 'Back', dogs_path, class: 'btn btn-primary mt-4' %>
+</div>

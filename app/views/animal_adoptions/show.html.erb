@@ -1,0 +1,52 @@
+<h1>Animal Adoption Details</h1>
+
+<table>
+  <tbody>
+    <tr>
+      <th>Animal ID</th>
+      <td><%= @animal['animalid'] %></td>
+    </tr>
+    <tr>
+      <th>Type</th>
+      <td><%= @animal['intype'] %></td>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <td><%= @animal['indate'] %></td>
+    </tr>
+    <tr>
+      <th>Pet Name</th>
+      <td><%= @animal['petname'] %></td>
+    </tr>
+    <tr>
+      <th>Animal Type</th>
+      <td><%= @animal['animaltype'] %></td>
+    </tr>
+    <tr>
+      <th>Pet Age</th>
+      <td><%= @animal['petage'] %></td>
+    </tr>
+    <tr>
+      <th>Pet Size</th>
+      <td><%= @animal['petsize'] %></td>
+    </tr>
+    <tr>
+      <th>Color</th>
+      <td><%= @animal['color'] %></td>
+    </tr>
+    <tr>
+      <th>Breed</th>
+      <td><%= @animal['breed'] %></td>
+    </tr>
+    <tr>
+      <th>Sex</th>
+      <td><%= @animal['sex'] %></td>
+    </tr>
+    <tr>
+      <th>URL</th>
+      <td><%= @animal['url'] %></td>
+    </tr>
+   
+  </tbody>
+</table>
+<%= link_to 'Back', animal_adoptions_path, class: 'btn btn-primary' %>

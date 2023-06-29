@@ -1,0 +1,35 @@
+<h1 class="text-center">Owners</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Breed Count</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @owners.each do |owner| %>
+      <tr>
+        <td><%= owner.name %></td>
+        <td><%= owner.breeds.count %></td>
+        <td><%= link_to 'Show Details', owner_path(owner), class: 'btn btn-primary' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%# ERB Conditional %>
+
+<% if @owners.any? { |owner| owner.breeds.count.positive? } %>
+  <div class="alert alert-success">
+    <p>***ERB Conditional*** At least one owner has breeds.</p>
+  </div>
+<% else %>
+  <div class="alert alert-info">
+    <p>No owners have breeds.</p>
+  </div>
+<% end %>
+
+<div class="text-center">
+  <%= paginate @owners, class: 'pagination justify-content-center' %>
+</div>

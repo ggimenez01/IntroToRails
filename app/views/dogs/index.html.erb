@@ -1,0 +1,36 @@
+<div class="container">
+  <h1 class="text-center mb-4 display-4">Dogs</h1>
+
+
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Breed</th>
+        <th>Group</th>
+        <th>Section</th>
+        <th>Country</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @dogs.each do |dog| %>
+        <tr>
+          <td><%= dog.id %></td>
+          <td><%= dog.name %></td>
+          <td><%= dog.breed.name %></td>
+          <td><%= dog.breed.group %></td>
+          <td><%= dog.breed.section %></td>
+          <td><%= dog.breed.country %></td>
+          <td><%= link_to 'More Details', dog_path(dog), class: "btn btn-primary" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= paginate @dogs, class: "pagination justify-content-center" %>
+
+  
+</div>

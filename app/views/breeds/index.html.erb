@@ -1,0 +1,26 @@
+<h1>All Dogs</h1>
+
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Breed</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @dogs.each do |dog| %>
+        <tr>
+          <td><%= dog.name %></td>
+          <td><%= dog.age %></td>
+          <td><%= dog.breed.name %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div class="d-flex justify-content-center">
+  <%= paginate @dogs %>
+</div>

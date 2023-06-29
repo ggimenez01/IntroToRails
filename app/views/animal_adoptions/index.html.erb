@@ -1,0 +1,19 @@
+<h1>Animal Adoptions</h1>
+
+<div class="row">
+  <% @animal_data.each do |record| %>
+    <div class="col-md-6">
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Animal ID: <%= record['animalid'] %></h5>
+          <p class="card-text">Type: <%= record['intype'] %></p>
+          <p class="card-text">Date: <%= record['indate'] %></p>
+          <p class="card-text">Pet Name: <%= record['petname'] %></p>
+          <%= link_to 'More Details', animal_adoption_path(record['animalid']), class: 'btn btn-primary' %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<%= paginate @animal_data %>
