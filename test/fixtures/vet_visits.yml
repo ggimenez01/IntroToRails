@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  visit_date: 2023-06-27
+  description: MyText
+  dog: one
+
+two:
+  visit_date: 2023-06-27
+  description: MyText
+  dog: two

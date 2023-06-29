@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  group: MyString
+  section: MyString
+  country: MyString
+  url: MyString
+  image: MyString
+  pdf: MyString
+
+two:
+  name: MyString
+  group: MyString
+  section: MyString
+  country: MyString
+  url: MyString
+  image: MyString
+  pdf: MyString
