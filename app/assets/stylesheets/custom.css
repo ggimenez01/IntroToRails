@@ -1,0 +1,31 @@
+.table-lg td,
+.table-lg th {
+  font-size: 16px; /* Adjust the font size to your desired value */
+}
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .pagination .page-item {
+    margin: 0 5px;
+  }
+  
+  .pagination .page-link {
+    color: #333;
+    background-color: #f8f9fa;
+    border-color: #ddd;
+  }
+  
+  .pagination .page-link:hover {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+  
+  .pagination .page-link:focus {
+    box-shadow: none;
+    outline: none;
+  }
+  
